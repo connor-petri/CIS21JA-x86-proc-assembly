@@ -13,7 +13,7 @@ b byte 0
 d byte 0
 
 .code
-main proc
+main2 proc
 
 ; #3
 mov eax, 05h
@@ -44,5 +44,5 @@ mov b, al
 add b, 2
 
 	exit
-main endp
-end main
+main2 endp
+end main2
