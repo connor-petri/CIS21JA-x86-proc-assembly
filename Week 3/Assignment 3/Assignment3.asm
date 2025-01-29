@@ -1,7 +1,7 @@
 ; Connor Petri
 ; Assignment 3
 ; CIS21JA
-; Abeer Alameer
+; 2025-01-28
 
 ; goal: collect num1, num2, and num3 from the user, compute ((num1 ^ 3) * num2 + 5 * (num2 ^ 2)) / num3, and display it back to the user
 
@@ -24,6 +24,7 @@ include irvine32.inc
 .code
 main proc
 
+	; Input gathering
 	mov edx, offset str1
 	call writeString
 	call readDec
@@ -45,6 +46,7 @@ main proc
 
 	call crlf
 
+	; Calculation
 	mov eax, num1				; eax = num1
 	mul num1					; edx:eax = num1 ^ 2, but we disregard edx due to our maximum size assumption
 	mul num1					; eax = num1 ^ 3
@@ -62,6 +64,7 @@ main proc
 								; edx = ((num1 ^ 3) * num2 + 5 * (num2 ^ 2)) % num3
 	mov ebx, edx				; move the remainder out of edx in preperation for writeString
 
+	; Output
 	call writeDec
 	mov edx, offset r
 	call writeString
@@ -72,3 +75,8 @@ main proc
 main endp
 end main
 
+; INPUT: 1, 2, 3
+; OUTPUT: 7 R: 1
+
+; INPUT 4, 6, 9
+; OUTPUT 62 R: 6
