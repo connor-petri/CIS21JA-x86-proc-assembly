@@ -1,6 +1,14 @@
-Microsoft (R) Macro Assembler Version 14.38.33134.0	    02/12/25 21:07:51
+Microsoft (R) Macro Assembler Version 14.38.33134.0	    02/12/25 21:16:55
 Assignment5.asm						     Page 1 - 1
 
+
+				; Connor Petri
+				; CIS21JA
+				; 2025-02-12
+				; This program takes 2 signed integers from the user, calculates 
+				; their sum and difference, and displays them to the user. 
+				; This process repeats 3 times with the text appearing in 
+				; the middle and the screen clearing between runs.
 
 				include irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
@@ -22,7 +30,7 @@ Assignment5.asm						     Page 1 - 1
 			      C 
 
  00000000			.data
- 00000000 0A			center_y_cor BYTE 10
+ 00000000 08			center_y_cor BYTE 8
  00000001 23			center_x_cor BYTE 35
 
  00000002 50 6C 65 61 73	inputMessage BYTE "Please enter an integer: ",0
@@ -78,8 +86,8 @@ Assignment5.asm						     Page 1 - 1
  0000002E			Locate proc
  0000002E  8A 35 00000000 R		mov dh, center_y_cor
  00000034  8A 15 00000001 R		mov dl, center_x_cor
- 0000003A  E8 00000000 E		call gotoxy
- 0000003F  FE 05 00000000 R		inc center_y_cor
+ 0000003A  FE 05 00000000 R		inc center_y_cor
+ 00000040  E8 00000000 E		call gotoxy
  00000045  C3				ret
  00000046			Locate endp
 
@@ -163,7 +171,14 @@ Assignment5.asm						     Page 1 - 1
  000000AE			DisplayDiff endp
 
 				end main
-Microsoft (R) Macro Assembler Version 14.38.33134.0	    02/12/25 21:07:51
+
+				; Please enter an integer: 25
+				; Please enter an integer: -25
+				; The sum of two integers: +0                                                                                             
+				; The sum of two integers: +50                                                                                            
+				; Press any key...     
+
+Microsoft (R) Macro Assembler Version 14.38.33134.0	    02/12/25 21:16:55
 Assignment5.asm						     Symbols 2 - 1
 
 

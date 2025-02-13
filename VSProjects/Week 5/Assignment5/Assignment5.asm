@@ -9,7 +9,7 @@
 include irvine32.inc
 
 .data
-center_y_cor BYTE 10
+center_y_cor BYTE 8
 center_x_cor BYTE 35
 
 inputMessage BYTE "Please enter an integer: ",0
@@ -44,6 +44,7 @@ main endp
 Locate proc
 	mov dh, center_y_cor
 	mov dl, center_x_cor
+	inc center_y_cor
 	call gotoxy
 	ret
 Locate endp
@@ -128,3 +129,23 @@ DisplayDiff proc
 DisplayDiff endp
 
 end main
+
+; SAMPLE RUN
+
+; Please enter an integer: 25
+; Please enter an integer: -25
+; The sum of two integers: +0                                                                                             
+; The sum of two integers: +50                                                                                            
+; Press any key...     
+
+; Please enter an integer: 100
+; Please enter an integer: -50
+; The sum of two integers: +50                                                                                            
+; The sum of two integers: +150                                                                                            
+; Press any key...
+
+; Please enter an integer: +2
+; Please enter an integer: -4
+; The sum of two integers: -2                                                                                             
+; The sum of two integers: +6                                                                                            
+; Press any key...
